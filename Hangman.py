@@ -1,12 +1,14 @@
-#Python program to illustrate Hangman Game
+#Python program to illustrate Hangman 
+
+#Python modules
 import random
 from collections import Counter
 
+#List of Fruits to guess from
 some_words = ['apple', 'banana', 'mango', 'strawberry', 'orange', 'grape', 'pineapple', 'apricot', 'lemon', 'coconut', 'watermelon', 'cherry', 'papaya', 'berry', 'peach', 'lychee', 'muskmelon']
 
 #randomly choose a secret word from our "some_words" LIST
 word = random.choice(some_words)
-print(word)
 
 if __name__ == '__main__':
     print("Guess the word! HINT: word is a name of a fruit")
@@ -62,16 +64,17 @@ if __name__ == '__main__':
                             flag = 1
                             print("Conratulations, You won!")
                             break #break out of for loop
-                # break #break out of the while loop
+                            break #break out of the while loop
                         else:
                             print('_', end='')
 
+            #Losing Condition
             if chances <= 0 and Counter(letter_guessed) != Counter(word):
                     print()
                     print("You lost!, Try again.")
                     print(f"The word was {format(word)}")
 
-    except KeyboardInterrupt:
+    except KeyboardInterrupt: #Catch Exception error
         print()
         print('Bye! Try again')
         exit()
